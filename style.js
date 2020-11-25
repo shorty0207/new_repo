@@ -14,6 +14,9 @@ function ThisGame (){
         takeTurn()
     }
     function takeTurn() {
+        if (board.checkForWinner()){
+            return
+        }
         if (turn % 2 === 0){
             humanPlayer.takeTurn()
         }else{
@@ -25,7 +28,10 @@ function ThisGame (){
 }
 function Board() {
     this.positions = Array.from(document.querySelectorAll('.btn'))
-    console.log(this.positions)
+
+    this.checkForWinner = function (){
+
+    }
 
 }
 function HumanPlayer(board) {
