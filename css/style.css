@@ -1,3 +1,22 @@
-body{
-    background-color: coral;
+
+.btn{
+    height: 180px;
+    width: 180px;
+    background-color: #f8f4f4;
+    border: 2px solid black;
+    font-size: 150px;
+    text-align: center;
+
+}
+.btn:hover{
+    background-color: #a49c9c;
+    cursor: pointer;
+}
+.main{
+    height: 100vh;
+    width: 700px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
 }
