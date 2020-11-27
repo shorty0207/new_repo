@@ -1,56 +1,56 @@
-const thisGame = new ThisGame()
-thisGame.start()
+const buttons = document.getElementsByClassName('btn')
+const winner1 = document.getElementById('winner1')
+const winner = document.getElementById('winner')
 
-function ThisGame (){
-    const board = new Board();
-    const humanPlayer = new HumanPlayer(board);
-    const computerPlayer = new ComputerPlayer(board);
-    let turn = 0;
 
-    this.start = function (){
-        const config = {childList: true}
-        const observer = new MutationObserver(() => takeTurn())
-        board.positions.forEach((el)=> observer.observe(el, config))
-        takeTurn()
-    }
-    function takeTurn() {
-        if (board.checkForWinner()){
-            return
+
+let turn = true
+
+
+function boxClicked (event) {
+    let el = event.target
+
+    if (!el.classList.contains('o') && !el.classList.contains('x')) {
+    if (turn) {
+            el.classList.add('x')
+            checkWin('x')
         }
-        if (turn % 2 === 0){
-            humanPlayer.takeTurn()
-        }else{
-            computerPlayer.takeTurn()
+     else {
+            el.classList.add('o')
+            checkWin('o')
+
         }
+        turn = !turn
 
-        turn++
+        console.log(event)
     }
-}
-function Board() {
-    this.positions = Array.from(document.querySelectorAll('.btn'))
 
-    this.checkForWinner = function (){
-
-    }
 
 }
-function HumanPlayer(board) {
-    this.takeTurn = function () {
 
-        board.positions
-            .forEach(el =>el.addEventListener('click', handleTurnTaken))
 
-    }
-    function  handleTurnTaken (event) {
-        event.target.innerText = "X"
-        board.positions.forEach(el => el.removeEventListener('click', handleTurnTaken))
-    }
+
+
+function checkWin(symbol){
+    let wins = [
+        [0, 1, 2],
+        [3, 4, 5],
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6]
+    ]
+
+    wins.map(x =>{
+        if (buttons[x[0]].classList.contains(symbol) &&
+            buttons[x[1]].classList.contains(symbol) &&
+            buttons[x[2]].classList.contains(symbol)){
+            winner.innerText = symbol + " player wins"
+
+        }
+    })
+
+
 }
-function ComputerPlayer(board) {
-    this.takeTurn = function (){
-        const availablePositions = board.positions.filter((p) => p.innerText === "")
-        const move = Math.floor(Math.random() * availablePositions.length)
-        availablePositions[move].innerText = "O"
-    }
-}
-

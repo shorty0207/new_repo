@@ -1,4 +1,6 @@
-
+.container{
+    display: flex;
+}
 .btn{
     height: 180px;
     width: 180px;
@@ -22,4 +24,24 @@
 }
 .winner{
     color: green;
+}
+.x{
+    background-image: url("https://s.clipartkey.com/mpngs/s/67-671877_black-multiplication-sign-clipart-png-download-transparent-tic.png");
+    background-size: 180px 180px;
+}
+.o{
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkEfGSV0o-P0-0teUC_SksHixb80fg2RzrZGhUM6PgpkSUYAR0Zc8C8vCbfUDdexqo_3TDki9uCRWBFIp2jZiJbjs-wYWk9PU&usqp=CAU&ec=45732300");
+    background-size: 180px 180px;
+}
+#winner{
+    font-size: 40px;
+    margin-top: 400px;
+    margin-left: 50px;
+    color: green;
+ }
+#winner1{
+    font-size: 40px;
+    margin-top: 400px;
+    margin-left: 50px;
+    color: #943131;
 }
