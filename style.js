@@ -47,7 +47,7 @@ function checkWin(symbol){
         if (buttons[x[0]].classList.contains(symbol) &&
             buttons[x[1]].classList.contains(symbol) &&
             buttons[x[2]].classList.contains(symbol)){
-            winner.innerText = symbol + " player wins"
+            winner.innerText = symbol + " Vestina wins"
 
         }
     })
